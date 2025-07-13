@@ -11,5 +11,5 @@ def place_move(board, row, col, player):
 
 def check_winner(board, player):
     # Check 5 in a row (horizontal/vertical/diagonal)
-    # [same logic as before]
+    # [uses same logic as before]
     pass
