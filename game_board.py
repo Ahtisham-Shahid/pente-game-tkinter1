@@ -4,7 +4,7 @@ def create_board():
     return [["" for _ in range(BOARD_SIZE)] for _ in range(BOARD_SIZE)]
 
 def place_move(board, row, col, player):
-    if board[row][col] == "":
+    if not board[row][col]:
         board[row][col] = player
         return True
     return False
