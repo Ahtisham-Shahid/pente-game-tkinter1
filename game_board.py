@@ -1,15 +1,23 @@
-BOARD_SIZE = 19
+SIZE = 13
+EMPTY = "."
+BLUE = "B"
+YELLOW = "Y"
 
-def create_board():
-    return [["" for _ in range(BOARD_SIZE)] for _ in range(BOARD_SIZE)]
+class PenteGame:
+    def __init__(self):
+        self.board = [[EMPTY for _ in range(SIZE)] for _ in range(SIZE)]
+        self.turn = BLUE
+        self.captures = {BLUE: 0, YELLOW: 0}
 
-def place_move(board, row, col, player):
-    if not board[row][col]:
-        board[row][col] = player
+    def in_bounds(self, x, y):
+        return 0 <= x < SIZE and 0 <= y < SIZE
+
+    def switch_turn(self):
+        self.turn = YELLOW if self.turn == BLUE else BLUE
+
+    def place_stone(self, x, y):
+        if not self.in_bounds(x, y) or self.board[x][y] != EMPTY:
+            return False
+        self.board[x][y] = self.turn
         return True
-    return False
 
-def check_winner(board, player):
-    # Check 5 in a row (horizontal/vertical/diagonal)
-    # [uses same logic as before]
-    pass
