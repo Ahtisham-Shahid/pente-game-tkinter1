@@ -1,7 +1,29 @@
-import csv
-from datetime import datetime
+from game_board import PenteGame
 
-def save_result(player1, player2, winner):
-    with open("scores.csv", mode="a", newline="") as file:
-        writer = csv.writer(file)
-        writer.writerow([player1, player2, winner, datetime.now().strftime("%Y-%m-%d")])
+class GameLogic:
+    def __init__(self):
+        self.game = PenteGame()
+
+    def valid_move(self, x, y):
+        return self.game.place_stone(x, y)
+
+    def get_board(self):
+        return self.game.board
+
+    def get_turn(self):
+        return self.game.turn
+
+    def get_captures(self):
+        return self.game.captures
+
+    def switch_turn(self):
+        self.game.switch_turn()
+
+    def check_win_by_row(self, x, y):
+        return self.game.check_five_in_a_row(x, y)
+
+    def check_win_by_capture(self):
+        return self.game.check_capture_win()
+
+    def reset(self):
+        self.__init__()
