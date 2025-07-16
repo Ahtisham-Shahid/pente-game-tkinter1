@@ -2,16 +2,23 @@
 # Task: Game
 # Code
 import tkinter as tk
+from tkinter import messagebox
+import json
 
-def show_result(winner):
-    result = tk.Tk()
-    result.title("Game Over")
 
-    label = tk.Label(result, text=f"🏆 Player {winner} Wins!", font=("Arial", 19))
-    label.pack(pady=20)
+def show_result(winner, reset_callback):
+    save_result(f"{winner} wins")
+    messagebox.showinfo("Game Over", f"{winner} wins!")
+    reset_callback()
 
-    btn = tk.Button(result, text="Restart Game", command=result.destroy)
-    btn.pack(pady=10)
-    btn.pack(pady=15)
 
-    result.mainloop()
+def save_result(result):
+    try:
+        with open("match_history.json", "r") as file:
+            history = json.load(file)
+    except FileNotFoundError:
+        history = []
+    history.append({"result": result})
+    with open("match_history.json", "w") as file:
+        json.dump(history, file, indent=2)
+
