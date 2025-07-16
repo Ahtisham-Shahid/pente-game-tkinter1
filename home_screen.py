@@ -1,13 +1,9 @@
 import tkinter as tk
 
-def launch_home_screen():
-    home = tk.Tk()
-    home.title("Welcome to Pente")
-
-    label = tk.Label(home, text="🎮 Pente Game", font=("Arial", 24))
-    label.pack(pady=20)
-
-    start_btn = tk.Button(home, text="Start Game", command=home.destroy)
-    start_btn.pack(pady=10)
-
-    instructions = tk.Label(home, text="Get 5 in a row to win!", font=("Arial", 12))
+def create_home_screen(root, show_frame):
+    frame = tk.Frame(root)
+    tk.Label(frame, text="Welcome to Pente", font=("Helvetica", 20)).pack(pady=20)
+    tk.Button(frame, text="Start Game", command=lambda: show_frame("game")).pack(pady=10)
+    tk.Button(frame, text="Rules", command=lambda: show_frame("rules")).pack(pady=10)
+    tk.Button(frame, text="Exit", command=root.quit).pack(pady=10)
+    return frame
