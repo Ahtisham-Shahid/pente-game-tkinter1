@@ -2,7 +2,7 @@ SIZE = 13
 EMPTY = "."
 BLUE = "B"
 YELLOW = "Y"
-
+RED= "R"
 class PenteGame:
     def __init__(self):
         self.board = [[EMPTY for _ in range(SIZE)] for _ in range(SIZE)]
