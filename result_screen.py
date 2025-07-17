@@ -5,7 +5,6 @@ import tkinter as tk
 from tkinter import messagebox
 import json
 
-
 def show_result(winner, reset_callback):
     save_result(f"{winner} wins")
     messagebox.showinfo("Game Over", f"{winner} wins!")
