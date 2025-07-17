@@ -47,5 +47,11 @@ For questions or feedback, contact the project leader:
 Email: ahtishamshami359@gmail.com
 
 ---
+# home screen 
+Goal: Improve UX and navigation.
+Suggested Changes:
+Add player name inputs.
+Add difficulty selection (if you add AI later).
+Add logo/title with a better font.
 
 Happy Gaming!
